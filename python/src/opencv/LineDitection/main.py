@@ -1,7 +1,7 @@
 import sys
 import cv2
 import numpy as np
-import colorDitection,morphology,mask,hough
+import colorDitection,morphology,mask,hough,houghEx
 
 class main:
 
@@ -13,11 +13,13 @@ class main:
         mp = morphology.morphology()
         mk = mask.mask()
         hg = hough.hough()
+        he = houghEx.houghEx()
 
         cImage = cd.ditection(self.image)
         mpImage = mp.denoise(cImage)
         mkImage = mk.masking(self.image,mpImage)
-        hg.conversion(mkImage)
+        hg = hg.conversion(mkImage)
+        he.ditection(hg)
 
 
 
@@ -30,7 +32,10 @@ if __name__ == "__main__":
     else:
         image = cv2.imread("./image/angle1.png")
     main = main(image)
-    main.main()
+    height, width, channels = image.shape[:3]
+    print("width: " + str(width))
+    print("height: " + str(height))
     cv2.imshow("元画像",image)
+    main.main()
     cv2.waitKey(0)
     cv2.destroyAllWindows()

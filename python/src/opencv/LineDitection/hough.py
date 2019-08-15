@@ -8,22 +8,22 @@ class hough:
         gray = cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
         edges = cv2.Canny(gray,30,40,apertureSize=3)
         cv2.imshow("エッジ画像",edges)
-        blur = cv2.medianBlur(gray,5)
+        #blur = cv2.medianBlur(gray,5)
 
         #長い線の検出
         lines = cv2.HoughLinesP(edges,1,np.pi/180,threshold=200,minLineLength=200,maxLineGap=50)
         #短い線の検出
         sLines = cv2.HoughLinesP(edges,1,np.pi/180,threshold=200,minLineLength=5,maxLineGap=5)
 
-        #円の検出
-        circles = cv2.HoughCircles(blur,cv2.HOUGH_GRADIENT,1,200,param1=50,param2=40,minRadius=0,maxRadius=0)
-        circles = np.uint16(np.around(circles))
+        # #円の検出
+        # circles = cv2.HoughCircles(blur,cv2.HOUGH_GRADIENT,1,200,param1=50,param2=40,minRadius=0,maxRadius=0)
+        # circles = np.uint16(np.around(circles))
         
         dst = cv2.cvtColor(edges,cv2.COLOR_GRAY2BGR)
 
-        for (x, y, r) in circles[0]:
-            cv2.circle(dst, (x, y), r, (0, 255, 0), 2)
-            cv2.circle(dst, (x, y), 2, (0, 0, 255), 3)
+        # for (x, y, r) in circles[0]:
+        #     cv2.circle(dst, (x, y), r, (0, 255, 0), 2)
+        #     cv2.circle(dst, (x, y), 2, (0, 0, 255), 3)
         
 
         for line in lines:
@@ -39,6 +39,7 @@ class hough:
         #     str = "./result/hough-" + self.name[num+1:]
         #     cv2.imwrite(str,dst)
         cv2.imshow("ライン抽出",dst)
+        #cv2.imwrite("./result/resultImage.png",dst)
         return dst
 
 # def output():
