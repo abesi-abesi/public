@@ -5,8 +5,8 @@ from matplotlib import pyplot as plt
 MIN_MATCH_COUNT = 10 
 good_match_rate = 0.15 #得られた特徴点のうち使用する点の割合
 
-img1 = cv2.imread("./result/resultLine.png",0) # 一枚目
-img2 = cv2.imread("./result/resultLine2.png",0) # 二枚目
+img1 = cv2.imread("./result/result1.png",0) # 一枚目
+img2 = cv2.imread("./result/result3.png",0) # 二枚目
 
 # Initiate ORB detector
 orb = cv2.ORB_create()

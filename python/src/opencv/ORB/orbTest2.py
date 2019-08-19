@@ -3,13 +3,13 @@ import os
 import matplotlib.pyplot as plt
 
 def main():
-	TARGET_FILE = "resultLine3.png"
+	TARGET_FILE = "result1.png"
 	IMG_DIR = "./orbResult/"
 
 	bf = cv2.BFMatcher(cv2.NORM_HAMMING)
 	# 特徴点算出のアルゴリズムを決定(コメントアウトで調整して切り替え)
-	detector = cv2.ORB_create()
-	# detector = cv2.AKAZE_create()
+	#detector = cv2.ORB_create()
+	detector = cv2.AKAZE_create()
 	(target_kp, target_des) = calc_kp_and_des(IMG_DIR + TARGET_FILE, detector)
 
 	print('TARGET_FILE: %s' % (TARGET_FILE))
