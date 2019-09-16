@@ -14,7 +14,7 @@ class Division:
             ret, frame = cap.read()
 
             # フレームを保存（'名前'＋番号＋'拡張子'）
-            cv2.imwrite('./image/result_' + str("{0:05d}".format(i)) +'.jpg',frame)
+            cv2.imwrite('./image/original2/frame_' + str("{0:05d}".format(i)) +'.jpg',frame)
 
             i+=1
             print(i)
@@ -32,7 +32,7 @@ if __name__=="__main__":
     if len(args) > 1:
         path = args[1]
     else:
-        path = "/Users/yuki_yamakawa/Desktop/public/Learning/movie/GOALS_HIGHLIGHTS1.mp4"
+        path = "/home/yamakawa/Develop/Learning/image/movie/data2.mp4"
 
     division = Division()
     division.Div(path)
