@@ -80,7 +80,7 @@ class diteciton:
         hsv = cv2.cvtColor(dst,cv2.COLOR_BGR2HSV)
         result = cv2.inRange(hsv,lower,upper)
 
-        cv2.imshow("結果画像",result)
+        #cv2.imshow("結果画像",result)
 
         return result
 
